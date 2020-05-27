@@ -1,0 +1,4 @@
+# To build an image that contains quagga routing suite.
+# -t: image tag name
+
+docker build -t ddos-sandbox:quagga-ubuntu .

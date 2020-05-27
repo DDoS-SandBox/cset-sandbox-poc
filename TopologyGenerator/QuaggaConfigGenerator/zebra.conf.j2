@@ -1,0 +1,11 @@
+hostname {{ hostname }}
+password {{ password }}
+enable password {{ password }}
+
+{% for interface in interfaces %}
+interface {{ interface.name }}
+    ip address {{ interface.ip }}/{{ interface.prefix_len }}
+{% endfor %}
+
+log file {{ log_file | default("/tmp/zebra.log", true) }}
+

@@ -1,0 +1,4 @@
+# To build an image of end host with traceroute capability
+# -t: image tag name
+
+docker build -t ddos-sandbox:endhost-ubuntu .

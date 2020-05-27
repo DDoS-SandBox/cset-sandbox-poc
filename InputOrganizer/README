@@ -1,0 +1,22 @@
+# InputOrganizer
+
+This is a proof of concept (PoC) implementation which we hacked together,
+we plan to cleanup the codebase and connect with other components in DDoS SandBox soon.
+
+Read `main.sh` to learn how to run this code. 
+The PoC assumes that you have access to a sFlow feed.
+You can also create an sFlow feed using an open vswitch.
+
+This PoC only generates two files:
+    * an inferred AS-level topology
+    * the prefixes that belong to each AS
+
+Software we used in InputOrganizer:
+    * pyasn, https://pypi.org/project/pyasn/, to read BGP dumps.
+    * asTopology (only binary is provided at this point) to print all possible AS-level paths from one as to another
+
+Public datasets in InputOrganizer:
+    * ip2asn-v4.tsv, https://iptoasn.com/
+    * BGP dumps from RouteViews, http://www.routeviews.org.  E.g., rib.20200518.0000.ipasn_db in data folder is processed by pyasn.
+    * CAIDA AS relationships, https://www.caida.org/data/as-relationships/,  E.g., 20200101.as-rel.txt.bz2 in data folder
+

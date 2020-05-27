@@ -1,0 +1,18 @@
+hostname {{ hostname }}
+password {{ password }}
+enable password {{ password }}
+
+!
+!    bgp router-id {{ router_id }}
+router bgp {{ asn }}
+    {% for network in networks %}
+    network {{ network }}
+    {% endfor %}
+    {% for neighbor in neighbors %}
+    neighbor {{ neighbor.ip }} remote-as {{ neighbor.asn }}
+    {% endfor %}
+
+!
+log file {{ log_file | default("/tmp/bgpd.log", true) }}
+!
+debug bgp updates
